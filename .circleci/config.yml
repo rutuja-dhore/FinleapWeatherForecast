@@ -37,11 +37,13 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      - run: mvn clean install spring-boot:run
+      - run: mvn clean install
       
+      - run: spring-boot:run     
+     
       - store_test_results:
           path: target/surefire-reports
       
       - store_artifacts:
-          path: target/finleap-0.0.1-SNAPSHOT-jar.jar
+          path: target/finleap-0.0.1-SNAPSHOT.jar
           
